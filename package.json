@@ -8,7 +8,9 @@
     "start": "webpack serve --open",
     "format": "prettier --write \"src/**/*.{ts,js,css,html}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint 'src/**/*.{ts,js}'"
+    "lint": "eslint 'src/**/*.{ts,js}'",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,8 @@
     "@typescript-eslint/parser": "^8.6.0",
     "eslint": "^9.10.0",
     "globals": "^15.9.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "ts-loader": "^9.5.1",
     "typescript": "^5.5.4",
@@ -29,7 +33,8 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
   },
-  "ignores": [
-    ".node_modules/*"
-  ]
+  "lint-staged": {
+    "src/**/*.{js,html.css}": "prettier --write",
+    "src/**/*.{ts, js}": "eslint"
+  }
 }
