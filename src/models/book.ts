@@ -15,7 +15,8 @@ export class Book implements IBook {
     this.borrowed = false;
     this.id = new Date().getTime();
     this.borrowedBy = '';
-  }
+}
+
 
   getAuthor(): string {
     return this.author;
