@@ -13,7 +13,7 @@ export class User implements IUser {
     this.id = new Date().getTime();
     this.borrowedBooks = [];
   }
-  
+
   getEmail(): string {
     return this.email;
   }
