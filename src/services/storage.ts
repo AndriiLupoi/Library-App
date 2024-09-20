@@ -2,21 +2,19 @@ export class Storage {
   private static instance: Storage;
 
   private constructor() {}
-
-  save<T>(key: string, data: T): void {
+  save(key: string, data: any) {
     localStorage.setItem(key, JSON.stringify(data));
   }
 
-  get<T>(key: string): T | null {
-    const item = localStorage.getItem(key);
-    return item ? JSON.parse(item) as T : null;
+  get(key: string): any {
+    return JSON.parse(localStorage.getItem(key) || '[]');
   }
 
   clear(): void {
     localStorage.clear();
   }
 
-  static getInstance(): Storage {
+  static getInstance() {
     if (!Storage.instance) {
       Storage.instance = new Storage();
     }

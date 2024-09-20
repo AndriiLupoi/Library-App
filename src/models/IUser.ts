@@ -9,4 +9,6 @@ export interface IUser extends Identifiable<number>, Representable {
 
   getUsername(): string;
   getEmail(): string;
+  borrowBook(book: IBook): void;
+  takeBookBack(bookId: number): void;
 }
